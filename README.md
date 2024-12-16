@@ -21,7 +21,20 @@ directory. Remember to rerun the `scram b` command to compile.
 
 ```bash
 cd CMSSW_X_Y_Z/src
-git clone
-scram b 
+git clone git@github.com:yimuchen/CMSSW-UserUtils.git UserUtils
+scram b
 ```
+
+## Notes
+
+This repository supersedes the old
+[UserUtils](https://github.com/yimuchen/UserUtils) repository, as that
+repository attempts to do too much, and either better tools were developed:
+
+- Complicated command-line parsing should be handled by python `argparse`
+  instead of boost where ever this is possible
+- Plotting should be done by cmsStyle library.
+
+Or was found to not be as trivially generalized, such as with the case of
+physics libraries.
 
