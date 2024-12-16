@@ -1,0 +1,11 @@
+<use name="root"/>
+<use name="DataFormats/Common"/>
+
+<use name="FWCore/Framework"/>
+<use name="FWCore/ParameterSet"/>
+<use name="FWCore/ServiceRegistry"/>
+<use name="CommonTools/UtilAlgos"/>
+
+<flags CXXFLAGS="-g"/>
+
+<export><lib name="1"/></export>
