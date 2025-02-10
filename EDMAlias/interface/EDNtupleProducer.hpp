@@ -23,7 +23,7 @@ protected:
 
   std::map<std::string, std::unique_ptr<std::vector<float>>> _float_collection;
   std::map<std::string, std::unique_ptr<std::vector<int>>> _int_collection;
-    std::map<std::string, std::unique_ptr<std::vector<bool>>> _bool_collection;
+  std::map<std::string, std::unique_ptr<std::vector<bool>>> _bool_collection;
 
   std::map<std::string, std::unique_ptr<float>> _float_map;
   std::map<std::string, std::unique_ptr<int>> _int_map;

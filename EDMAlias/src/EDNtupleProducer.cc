@@ -1,4 +1,5 @@
 #include "UserUtils/EDMAlias/interface/EDNtupleProducer.hpp"
+#include "UserUtils/STLUtils/interface/StringUtils.hpp"
 
 namespace usr {
 
@@ -31,7 +32,7 @@ void EDNtupleProducer::AddCollection<bool>(const std::string &name) {
 template <>
 std::vector<float> &EDNtupleProducer::Col<float>(const std::string &name) {
   if (!_float_collection.count(name)) {
-    throw std::invalid_argument("No float collection!");
+    throw std::invalid_argument(usr::fstr("No float collection! [%s]", name));
   }
   return *_float_collection[name];
 }
@@ -39,7 +40,7 @@ std::vector<float> &EDNtupleProducer::Col<float>(const std::string &name) {
 template <>
 std::vector<int> &EDNtupleProducer::Col<int>(const std::string &name) {
   if (!_int_collection.count(name)) {
-    throw std::invalid_argument("No int collection [%s]");
+    throw std::invalid_argument(usr::fstr("No int collection [%s]", name));
   }
   return *_int_collection[name];
 }
@@ -47,7 +48,7 @@ std::vector<int> &EDNtupleProducer::Col<int>(const std::string &name) {
 template <>
 std::vector<bool> &EDNtupleProducer::Col<bool>(const std::string &name) {
   if (!_bool_collection.count(name)) {
-    throw std::invalid_argument("No bool collection [%s]");
+    throw std::invalid_argument(usr::fstr("No bool collection [%s]", name));
   }
   return *_bool_collection[name];
 }
