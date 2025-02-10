@@ -1,6 +1,7 @@
 #ifndef USERUTILS_EDMALIAS_PLUGINALIAS_HPP
 #define USERUTILS_EDMALIAS_PLUGINALIAS_HPP
 
+#include "FWCore/Framework//interface/EventSetup.h"
 #include "FWCore/Framework/interface/Event.h"
 #include "FWCore/Framework/interface/MakerMacros.h"
 #include "FWCore/Framework/interface/one/EDAnalyzer.h"
@@ -48,6 +49,14 @@ protected:
                                        const edm::EDGetToken tok) {
     edm::Handle<TYPE> handle;
     event.getByToken(tok, handle);
+    assert(handle.isValid());
+    return handle;
+  }
+  template <typename TYPE, typename TYPERECORD>
+  inline edm::ESHandle<TYPE>
+  make_es_handle(const edm::EventSetup &eventsetup,
+                 const edm::ESGetToken<TYPE, TYPERECORD> tok) {
+    edm::ESHandle<TYPE> handle = eventsetup.getHandle(tok);
     assert(handle.isValid());
     return handle;
   }
